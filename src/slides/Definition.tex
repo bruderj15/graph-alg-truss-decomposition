@@ -1,0 +1,22 @@
+\section{Problemdefinition}
+
+\begin{frame}{Problemstellung}
+    \begin{itemize}
+        \item Eingaben:
+        \begin{itemize}
+            \item Ungerichteter Graph $G = (V,E)$
+            \item $h \in \mathbb{N}^+$: Max. Anzahl Sprünge für Klassifikation als Nachbar
+        \end{itemize}
+        \item Ausgabe: Trussness-Funktion $t: E \rightarrow \mathbb{N}^+$
+        \item Also Problem: $trussDecomp: 2^G \times \mathbb{N}^+ \rightarrow (E \rightarrow \mathbb{N}^+)$
+        \item Verwendung: $\forall k \in \mathbb{N}^+, \forall e \in E: e \in \text{$(k,h)$-truss} \leftrightarrow t(e) \geq k$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definitionen}
+    \begin{align*}
+        &\hspace{0pt} \text{$h$-neighbors}: N_G(v,h) = E_G(v) \text{ mit BFS}_{d=h}  \\
+        &\hspace{0pt} \text{$h$-support}: sup_G(e, h) = N_G(u,h) \cap N_G(v,h) \text{, wobei } e = \{u,v\} \\
+        &\hspace{0pt} \text{$(k,h)$-truss}: S \subseteq G: \forall e \in E(S): sup_{S}(e,h) \geq k - 2 \land \nexists \, S' \supset S: S' \text{ ist } \text{$(k,h)$-truss} \\
+    \end{align*}
+\end{frame}
