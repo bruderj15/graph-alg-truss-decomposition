@@ -1,0 +1,27 @@
+\section{Algorithmus}
+
+\begin{frame}{Pseudo-Code}
+    \begin{algorithm}[H]
+        \tiny
+        \KwIn{Graph $G = (V, E)$, distance threshold $h$}
+        \KwOut{$h$-trussness $t: E \rightarrow \mathbb{N}^+ $}
+
+        Initialize $\text{bin}[\cdot] \leftarrow \{0\}$\;
+        Initialize $\text{t} \leftarrow \emptyset$\;
+        \ForEach{$e \in E$}{
+            $\text{bin}[sup_G(e, h) + 2] \leftarrow \text{bin}[sup_G(e, h) + 2] \cup \{e\}$\;
+        }
+        $\text{ubtruss} \leftarrow \max\{sup_G(e, h) \mid e \in E\} + 2$\;
+        \For{$k = 2$ \KwTo $\text{ubtruss}$}{
+            \While{$\text{bin}[k] \neq \emptyset$}{
+                $e \leftarrow$ pick an edge from $\text{bin}[k]$\;
+                $t \leftarrow t \cup \{ e \mapsto k \} $\;
+                $G \leftarrow G \setminus \{e\}$\;
+                \ForEach{$e' \in E_G(e, h)$ with $sup_G(e', h) > k - 2$}{
+                    move $e'$ to $\text{bin}[\max(sup_G(e', h) + 2, k)]$\;
+                }
+            }
+        }
+        \Return{$\text{t}$}\;
+    \end{algorithm}
+\end{frame}
