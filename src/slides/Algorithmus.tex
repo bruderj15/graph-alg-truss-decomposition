@@ -3,6 +3,7 @@
 \begin{frame}{Pseudo-Code}
     \begin{algorithm}[H]
         \tiny
+        \caption{Higher-Order Truss-Decomposition}
         \KwIn{Graph $G = (V, E)$, distance threshold $h$}
         \KwOut{$h$-trussness $t: E \rightarrow \mathbb{N}^+ $}
 
@@ -24,4 +25,23 @@
         }
         \Return{$\text{t}$}\;
     \end{algorithm}
+\end{frame}
+
+\begin{frame}{Rust-Implementierung für Petgraph: Signatur}
+    \begin{listing}[H]
+        \inputminted[linenos=true]{rust}{Code/signature.rs}
+    \end{listing}
+\end{frame}
+
+\begin{frame}{Rust-Implementierung für Petgraph: Initialisierung}
+    \begin{listing}[H]
+        \inputminted[linenos=true]{rust}{Code/alg_init.rs}
+    \end{listing}
+\end{frame}
+
+\begin{frame}{Rust-Implementierung für Petgraph: Berechnung}
+    \begin{listing}[H]
+        \tiny
+        \inputminted[linenos=true]{rust}{Code/alg_core.rs}
+    \end{listing}
 \end{frame}
