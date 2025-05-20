@@ -1,0 +1,17 @@
+\section*{Zusammenfassung}
+
+\begin{frame}{Zusammenfassung}
+    \begin{itemize}
+        \item Analyse von Gemeinschaften in Graphen
+        \item Verallgemeinerung von $\text{$k$-truss}$: $\text{$(k,h)$-truss}$ mit $h=1$
+        \item Iteratives Entfernen von Kanten (Peeling) und Überprüfung Gemeinschaften
+        \item Komplexität: $\text{HOTDC} \in \mathcal{O}(\lvert E \rvert t_h^2)$ mit $WC(t_h) = \lvert E \rvert$, $t_h$ ist durchschnittliche Anzahl gelaufener Kanten in $h$ Sprüngen
+        \item Hauptkosten: Entfernen von Kanten und Neuberechnung Support
+        \item Ausblick:
+        \begin{itemize}
+            \item Paralleles asynchrones Löschen von Kanten
+            \item Parallele Neuberechnung Support
+            \item Trick: Konvergenzeigenschaften Support
+        \end{itemize}
+    \end{itemize}
+\end{frame}
